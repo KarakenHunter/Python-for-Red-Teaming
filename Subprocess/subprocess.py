@@ -1,4 +1,3 @@
-import socket
 import subprocess as sp
 
 cmd="whoami"
