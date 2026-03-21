@@ -9,10 +9,15 @@ print("[*] Waiting for connection...")
 sock.listen()
 collection = {}
 
+def assignclients():
+    while True:
+        client, addr = sock.accept()
+        collection[f'{addr}'] = f'{client}'
+        sys.stdout.write(f"\rConnected clients:\n {collection}")
+        sys.stdout.flush()
 
+t1 = threading.Thread(target=assignclients)
+t1.daemon = True
+t1.start()
 while True:
-    client, addr = sock.accept()
-    collection[f'{addr}'] = f'{client}'
-    sys.stdout.write(f"\rConnected clients:\n {collection}")
-    sys.stdout.flush()
-
+    pass
