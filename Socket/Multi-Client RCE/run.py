@@ -1,0 +1,9 @@
+import socket
+import threading
+import sys
+
+# Initialize socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind(('localhost', 9821))
+print("[*] Waiting for connection...")
+sock.listen()
